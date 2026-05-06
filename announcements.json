@@ -1,6 +1,6 @@
 {
   "feedVersion": 1,
-  "updatedAt": "2026-05-06T04:44:00Z",
+  "updatedAt": "2026-05-05T21:20:00Z",
   "announcements": [
     {
       "id": "2026-05-04-launch-v1",
@@ -14,15 +14,15 @@
       "id": "2026-05-06-welcome-v1",
       "title": "Word Chain Royale announcements",
       "body": "This feed is the official place for patch notes, limited-time events, and scheduled maintenance. Open the Home tab in the app to see the latest post — we'll notify you locally when a new announcement is published.",
-      "publishedAt": "2026-05-06T04:42:00Z",
+      "publishedAt": "2026-05-05T16:42:00Z",
       "importance": "normal",
       "linkUrl": "https://github.com/jrftw/WordChainRoyaleAnnouncements"
     },
     {
       "id": "2026-05-06-active-development-v1",
       "title": "We're working on these improvements",
-      "body": "We're actively addressing feedback and tightening up the experience. Here's what's in progress right now:\n\n1. UI glitches\n2. Tutorial and practice match issues\n3. UI errors\n4. AI word choice\n5. Categories not all displaying\n\n— Team · 11:44 PM EST, May 5, 2026",
-      "publishedAt": "2026-05-06T04:44:00Z",
+      "body": "We're actively addressing feedback and tightening up the experience. Here's what's in progress right now:\n\n1. UI glitches\n2. Tutorial and practice match issues\n3. UI errors\n4. AI word choice\n5. Categories not all displaying\n\n— Team · 4:17 PM EST, May 5, 2026",
+      "publishedAt": "2026-05-05T20:17:00Z",
       "importance": "normal",
       "linkUrl": "https://github.com/jrftw/WordChainRoyaleAnnouncements"
     }
