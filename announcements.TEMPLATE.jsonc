@@ -1,0 +1,89 @@
+// =============================================================================
+// Word Chain Royale — announcements feed REFERENCE (JSON with Comments, .jsonc)
+// =============================================================================
+//
+// LIVE FILE FOR THE APP
+//   • On GitHub:  repo `jrftw/WordChainRoyaleAnnouncements`, branch `main`, file `announcements.json`
+//   • That file MUST be valid standard JSON: no // comments, no trailing commas, no `...`
+//   • This .jsonc file is only for you to read and copy from — strip every // line before pasting
+//     into `announcements.json`, or use an editor that exports "JSON without comments".
+//
+// HOW THE APP USES IT
+//   • Fetches:  https://raw.githubusercontent.com/jrftw/WordChainRoyaleAnnouncements/main/announcements.json
+//   • "Top" post = the announcement with the latest `publishedAt` (ISO UTC), after sorting.
+//   • `id` must be NEW for each new post (dismiss + local notification dedupe).
+//   • Optional fields: omit the key entirely if you do not need them (do not use `null` unless you
+//     know the consumer; the app treats missing `importance` as "normal" and missing `linkUrl` as no button).
+//
+// PARSER BEHAVIOR
+//   • Root: only `feedVersion`, `updatedAt`, and `announcements` are read. Other root keys are ignored.
+//   • Each item: only the keys below are read. Any other keys on an item are ignored.
+//
+// =============================================================================
+
+{
+  // ---------------------------------------------------------------------------
+  // ROOT
+  // ---------------------------------------------------------------------------
+
+  // Integer. Schema version. App uses 1 today; if omitted, treated as 1.
+  "feedVersion": 1,
+
+  // Optional. ISO-8601 in UTC, e.g. "2026-05-06T18:00:00Z". For your records; not shown in UI.
+  "updatedAt": "2026-05-06T04:42:00Z",
+
+  // ---------------------------------------------------------------------------
+  // ANNOUNCEMENTS ARRAY
+  // ---------------------------------------------------------------------------
+  // List of posts. You can keep old entries for history. Only the latest `publishedAt` is shown
+  // on Home; older rows are still in the file for your audit trail.
+
+  "announcements": [
+    {
+      // ----- Required fields -----
+
+      // Unique string for THIS post. When you publish a new announcement, use a new id
+      // (e.g. date + slug). Same id = no new local notification.
+      "id": "2026-05-06-welcome-v1",
+
+      // Short headline: home banner title + notification title.
+      "title": "Word Chain Royale announcements",
+
+      // Body text: home banner + notification body. For a line break in the string, use \n
+      "body": "This feed is the official place for patch notes, events, and maintenance. Open the Home tab to read the latest — we can notify you locally when a new id appears.",
+
+      // When this post goes "live" for ordering. Use Zulu (Z) or explicit offset. Latest wins.
+      "publishedAt": "2026-05-06T04:42:00Z",
+
+      // ----- Optional fields (remove the line if you do not need it) -----
+
+      // Styling: "normal" (blue/purple) or "high" (warmer, urgent). If you delete this key, "normal" is used.
+      "importance": "normal",
+
+      // If set (https://...), the banner shows a "Details & links" button. Remove key if no URL.
+      "linkUrl": "https://github.com/jrftw/WordChainRoyaleAnnouncements"
+
+      // ----- Not used by the app today (do not add unless you extend the app) -----
+      // "tags": ["event", "patch"]   // ignored
+      // "locale": "en"                // ignored
+    }
+
+    // -------------------------------------------------------------------------
+    // Optional: second (older) post for your file history — uncomment and fix commas.
+    // The app still only displays the single newest by `publishedAt` on Home.
+    // -------------------------------------------------------------------------
+    // ,
+    // {
+    //   "id": "2026-05-01-older-v1",
+    //   "title": "Older announcement (example)",
+    //   "body": "Kept in the file for history only if this publishedAt is older than the one above.",
+    //   "publishedAt": "2026-05-01T12:00:00Z",
+    //   "importance": "high",
+    //   "linkUrl": "https://example.com"
+    // }
+  ]
+}
+
+// Suggestions when editing the real announcements.json:
+// - After editing, validate JSON (e.g. jsonlint.com) if the app shows no banner.
+// - Commit to `main` in WordChainRoyaleAnnouncements; CDN may cache briefly — wait ~1–5 minutes if needed.
